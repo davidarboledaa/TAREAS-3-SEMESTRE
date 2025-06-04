@@ -1,0 +1,84 @@
+using System;
+
+namespace FigurasGeometricas
+{
+    // Clase que representa un círculo
+    public class Circulo
+    {
+        // Variable privada que almacena el radio del círculo
+        private double radio;
+
+        // Constructor que inicializa el radio del círculo
+        public Circulo(double radio)
+        {
+            this.radio = radio;
+        }
+
+        // Método que calcula y devuelve el área del círculo
+        public double CalcularArea()
+        {
+            // Fórmula del área del círculo: π * radio^2
+            return Math.PI * radio * radio;
+        }
+
+        // Método que calcula y devuelve el perímetro (circunferencia) del círculo
+        public double CalcularPerimetro()
+        {
+            // Fórmula del perímetro del círculo: 2 * π * radio
+            return 2 * Math.PI * radio;
+        }
+    }
+
+    // Clase que representa un rectángulo
+    public class Rectangulo
+    {
+        // Variables privadas que almacenan la base y la altura del rectángulo
+        private double baseRectangulo;
+        private double altura;
+
+        // Constructor que inicializa la base y la altura del rectángulo
+        public Rectangulo(double baseRectangulo, double altura)
+        {
+            this.baseRectangulo = baseRectangulo;
+            this.altura = altura;
+        }
+
+        // Método que calcula y devuelve el área del rectángulo
+        public double CalcularArea()
+        {
+            // Fórmula del área del rectángulo: base * altura
+            return baseRectangulo * altura;
+        }
+
+        // Método que calcula y devuelve el perímetro del rectángulo
+        public double CalcularPerimetro()
+        {
+            // Fórmula del perímetro del rectángulo: 2 * (base + altura)
+            return 2 * (baseRectangulo + altura);
+        }
+    }
+
+    // Clase principal para probar las figuras geométricas
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Crear un objeto de tipo Circulo con radio 5
+            Circulo circulo = new Circulo(5);
+            Console.WriteLine("Círculo:");
+            Console.WriteLine("Área: " + circulo.CalcularArea());
+            Console.WriteLine("Perímetro: " + circulo.CalcularPerimetro());
+
+            // Crear un objeto de tipo Rectangulo con base 4 y altura 3
+            Rectangulo rectangulo = new Rectangulo(4, 3);
+            Console.WriteLine("\nRectángulo:");
+            Console.WriteLine("Área: " + rectangulo.CalcularArea());
+            Console.WriteLine("Perímetro: " + rectangulo.CalcularPerimetro());
+        }
+    }
+}
+Define dos clases: Circulo y Rectangulo, cada una con propiedades encapsuladas (privadas).
+
+Implementa métodos para calcular el área y el perímetro de ambas figuras.
+
+Incluye un Main para probar las clases con ejemplos concretos.
