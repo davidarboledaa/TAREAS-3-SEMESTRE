@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace NumerosInversosApp
+{
+    // Clase que representa la lógica de números
+    public class Numeros
+    {
+        public List<int> ListaNumeros { get; set; }
+
+        // Constructor
+        public Numeros()
+        {
+            ListaNumeros = new List<int>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                ListaNumeros.Add(i);
+            }
+        }
+
+        // Método para mostrar los números en orden inverso separados por comas
+        public void MostrarInverso()
+        {
+            var numerosInversos = ListaNumeros.AsEnumerable().Reverse();
+            string resultado = string.Join(", ", numerosInversos);
+            Console.WriteLine("Números en orden inverso:");
+            Console.WriteLine(resultado);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Numeros misNumeros = new Numeros();  // Crear objeto
+            misNumeros.MostrarInverso();         // Llamar al método
+        }
+    }
+}
