@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+
+namespace CursoApp
+{
+    // Clase que representa un curso
+    public class Curso
+    {
+        // Lista de asignaturas
+        public List<string> Asignaturas { get; set; }
+
+        // Constructor
+        public Curso()
+        {
+            Asignaturas = new List<string>
+            {
+                "Matemáticas",
+                "Física",
+                "Química",
+                "Historia",
+                "Lengua"
+            };
+        }
+
+        // Método para mostrar las asignaturas
+        public void MostrarAsignaturas()
+        {
+            Console.WriteLine("Asignaturas del curso:");
+            foreach (string asignatura in Asignaturas)
+            {
+                Console.WriteLine($"- {asignatura}");
+            }
+        }
+    }
+
+    // Clase principal del programa
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Curso miCurso = new Curso();       // Crear un objeto Curso
+            miCurso.MostrarAsignaturas();      // Mostrar las asignaturas
+        }
+    }
+}
