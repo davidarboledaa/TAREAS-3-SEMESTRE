@@ -1,0 +1,15 @@
+using System;
+using System.Collections.Generic;
+
+namespace ContadorVocalesApp
+{
+    public class ContadorVocales
+    {
+        public string Palabra { get; set; }
+        private Dictionary<char, int> ConteoVocales;
+
+        public ContadorVocales(string palabra)
+        {
+            Palabra = palabra.ToLower();
+            ConteoVocales = new Dictionary<char, int>
+            {
