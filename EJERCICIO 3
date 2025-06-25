@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+
+namespace AbecedarioApp
+{
+    public class Abecedario
+    {
+        public List<char> Letras { get; set; }
+
+        // Constructor: llena el abecedario en letras minúsculas
+        public Abecedario()
+        {
+            Letras = new List<char>();
+
+            for (char c = 'a'; c <= 'z'; c++)
+            {
+                Letras.Add(c);
+            }
+        }
+
+        // Elimina letras en posiciones múltiplos de 3 (posición comenzando desde 1)
+        public void EliminarMultiploDeTres()
+        {
+            for (int i = Letras.Count - 1; i >= 0; i--)
+            {
+                int posicion = i + 1;
+                if (posicion % 3 == 0)
+                {
+                    Letras.RemoveAt(i);
+                }
+            }
+        }
+
+        // Muestra la lista resultante
+        public void MostrarLetras()
+        {
+            Console.WriteLine("Letras resultantes:");
+            Console.WriteLine(string.Join(", ", Letras));
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Abecedario abc = new Abecedario();
+            abc.EliminarMultiploDeTres();
+            abc.MostrarLetras();
+        }
+    }
+}
