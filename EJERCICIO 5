@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+
+namespace LoteriaPrimitivaApp
+{
+    public class LoteriaPrimitiva
+    {
+        public List<int> NumerosGanadores { get; set; }
+
+        public LoteriaPrimitiva()
+        {
+            NumerosGanadores = new List<int>();
+        }
+
+        // Método para pedir los números al usuario
+        public void PedirNumeros()
+        {
+            Console.WriteLine("Ingrese 6 números ganadores de la Lotería Primitiva (entre 1 y 49):");
+
+            while (NumerosGanadores.Co
