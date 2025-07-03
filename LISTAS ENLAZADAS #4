@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // Crear lista enlazada
+        LinkedList<int> numeros = new LinkedList<int>();
+        Random rand = new Random();
+
+        // Llenar la lista con 50 números aleatorios entre 1 y 999
+        for (int i = 0; i < 50; i++)
+        {
+            numeros.AddLast(rand.Next(1, 1000));
+        }
+
+        Console.WriteLine("Lista original:");
+        MostrarLista(numeros);
+
+        // Leer valores de rango desde el teclado
+        Console.Write("\nIngrese el valor mínimo del rango: ");
+        int rangoMin = int.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese el valor máximo del rango: ");
+        int rangoMax = int.Parse(Console.ReadLine());
+
+        // Eliminar nodos fuera del rango
+        LinkedListNode<int> nodo = numeros.First;
+        while (nodo != null)
+        {
+            LinkedListNode<int> siguiente = nodo.Next;
+
+            if (nodo.Value < rangoMin || nodo.Value > rangoMax)
+            {
+                numeros.Remove(nodo);
+            }
+
+            nodo = siguiente;
+        }
+
+        // Mostrar lista después de eliminar nodos
+        Console.WriteLine("\nLista después de eliminar los números fuera del rango:");
+        MostrarLista(numeros);
+    }
+
+    // Método para imprimir los valores de la lista
+    static void MostrarLista(LinkedList<int> lista)
+    {
+        foreach (int numero in lista)
+        {
+            Console.Write(numero + " ");
+        }
+        Console.WriteLine();
+    }
+}
