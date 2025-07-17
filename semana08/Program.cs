@@ -20,4 +20,4 @@ class Program
         // Comienzo la atracción y dejo que las personas suban en orden
         montañaRusa.IniciarAtraccion();
     }
-}
+} //Fin 
