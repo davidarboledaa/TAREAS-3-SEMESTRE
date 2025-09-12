@@ -1,0 +1,89 @@
+using System;
+using System.Collections.Generic;
+
+class ProgramaRevistas
+{
+    static void Main()
+    {
+        // Catálogo inicial con 10 revistas
+        List<string> catalogo = new List<string>()
+        {
+            "National Geographic",
+            "Scientific American",
+            "Nature",
+            "Time",
+            "Forbes",
+            "The Economist",
+            "Popular Science",
+            "Reader's Digest",
+            "Smithsonian",
+            "PC Magazine"
+        };
+
+        int opcion;
+        do
+        {
+            Console.WriteLine("\n=== Catálogo de Revistas ===");
+            Console.WriteLine("1. Buscar título (iterativo)");
+            Console.WriteLine("2. Buscar título (recursivo)");
+            Console.WriteLine("3. Mostrar catálogo");
+            Console.WriteLine("0. Salir");
+            Console.Write("Seleccione una opción: ");
+            opcion = int.Parse(Console.ReadLine());
+
+            switch (opcion)
+            {
+                case 1:
+                    Console.Write("Ingrese el título a buscar: ");
+                    string tituloIterativo = Console.ReadLine();
+                    bool encontradoIter = BuscarIterativo(catalogo, tituloIterativo);
+                    Console.WriteLine(encontradoIter ? "Encontrado" : "No encontrado");
+                    break;
+
+                case 2:
+                    Console.Write("Ingrese el título a buscar: ");
+                    string tituloRecursivo = Console.ReadLine();
+                    bool encontradoRec = BuscarRecursivo(catalogo, tituloRecursivo, 0);
+                    Console.WriteLine(encontradoRec ? "Encontrado" : "No encontrado");
+                    break;
+
+                case 3:
+                    Console.WriteLine("\n--- Catálogo ---");
+                    foreach (var revista in catalogo)
+                        Console.WriteLine("- " + revista);
+                    break;
+
+                case 0:
+                    Console.WriteLine("Saliendo del programa...");
+                    break;
+
+                default:
+                    Console.WriteLine("Opción inválida.");
+                    break;
+            }
+
+        } while (opcion != 0);
+    }
+
+    // Método de búsqueda iterativa
+    static bool BuscarIterativo(List<string> catalogo, string titulo)
+    {
+        foreach (var revista in catalogo)
+        {
+            if (revista.Equals(titulo, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        return false;
+    }
+
+    // Método de búsqueda recursiva
+    static bool BuscarRecursivo(List<string> catalogo, string titulo, int indice)
+    {
+        if (indice >= catalogo.Count)
+            return false;
+        if (catalogo[indice].Equals(titulo, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        return BuscarRecursivo(catalogo, titulo, indice + 1);
+    }
+}
